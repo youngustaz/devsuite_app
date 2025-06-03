@@ -19,13 +19,27 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
       <a class="navbar-brand fw-bold" href="/">DevSuite</a>
-      <div class="navbar-nav">
-        <a class="nav-link" href="{{ url_for('home') }}">Portfolio</a>
-        <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
-        <a class="nav-link" href="{{ url_for('store') }}">Store</a>
-        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-        <a class="nav-link" href="{{ url_for('crm') }}">CRM</a>
-        <a class="nav-link" href="{{ url_for('todo') }}">To-Do</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('store') }}">Store</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('crm') }}">CRM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('todo') }}">To-Do</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -43,6 +57,16 @@
   <!-- FOOTER -->
   <footer class="bg-dark text-white text-center py-3 mt-4">
     <small>&copy; 2025 DevSuite. Built with Flask 💻</small>
+    <p>&copy; 2025 Al-amin Abdulkabir. All Rights Reserved.</p>
+    <div>
+        <a href="#"><i class="bi bi-linkedin"></i>https://www.linkedin.com/in/al-amin-abdulkabir-475a12296/</a><br>
+        <a href="#"><i class="bi bi-github"></i>https://github.com/youngustaz</a>
+    </div>
   </footer>
+  <button id="backToTopBtn" title="Go to top">
+    <i class="bi bi-arrow-up-circle-fill"></i>
+  </button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
