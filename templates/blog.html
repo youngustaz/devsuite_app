@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Blog Posts</h2>
+<a href="{{ url_for('new_post') }}" class="btn btn-success mb-3">+ New Post</a>
+<ul>
+  {% for post in posts %}
+    <li><a href="{{ url_for('blog_post', id=post.id) }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

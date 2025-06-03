@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>New Blog Post</h2>
+<form method="post">
+  <input name="title" class="form-control mb-2" placeholder="Title">
+  <textarea name="content" class="form-control mb-2" placeholder="Content"></textarea>
+  <button class="btn btn-primary">Post</button>
+</form>
+{% endblock %}

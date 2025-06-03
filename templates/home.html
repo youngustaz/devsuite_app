@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to My Developer Portfolio</h2>
+<p>Hi, I’m a full stack developer skilled in Python, Flask, HTML, CSS, and JavaScript.</p>
+
+<h4>Projects:</h4>
+<ul>
+  <li><a href="{{ url_for('blog') }}">Blog System</a></li>
+  <li><a href="{{ url_for('store') }}">Mini Store</a></li>
+  <li><a href="{{ url_for('todo') }}">To-Do List</a></li>
+</ul>
+{% endblock %}
