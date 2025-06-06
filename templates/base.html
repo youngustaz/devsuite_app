@@ -15,48 +15,35 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
-    <div id="spinner" class="d-none position-fixed top-50 start-50 translate-middle">
-      <div class="spinner-border text-primary" role="status">
-        <div class="container">
-          <a class="navbar-brand fw-bold" href="/">DevSuite</a>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home') }}">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('store') }}">Store</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('crm') }}">CRM</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('todo') }}">To-Do</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <button class="btn btn-sm btn-outline-light" onclick="toggleDarkMode()">🌙</button>
-        <div class="d-flex gap-2 mt-2">
-          <a href="{{ url_for('blog') }}" class="btn btn-outline-secondary">✍ Blog</a>
-          <a href="{{ url_for('store') }}" class="btn btn-outline-secondary">🛒 Store</a>
-          <a href="{{ url_for('todo') }}" class="btn btn-outline-secondary">🗒️ To-Do</a>
-        </div>
-      </div>
+  <!-- Spinner (above everything) -->
+<div id="spinner" class="d-none position-fixed top-50 start-50 translate-middle">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">DevSuite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('blog') }}">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('store') }}">Store</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('crm') }}">CRM</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('todo') }}">To-Do</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
     <!-- Toast notification -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div class="toast" id="welcomeToast" role="alert">
+      <div class="toast" id="welcomeToast" role="alert" data-bs-autohide="false">
         <div class="toast-header">
           <strong class="me-auto">Welcome 🎉</strong>
           <small>Now</small>
@@ -66,6 +53,9 @@
           Thanks for visiting DevSuite!
         </div>
       </div>
+    </div>
+    <div class="container py-4">
+      {% block content %}{% endblock %}
     </div>
 
 
@@ -108,6 +98,13 @@
     window.onload = () => {
       const toast = new bootstrap.Toast(document.getElementById('welcomeToast'));
       toast.show();
+    };
+    let btn = document.getElementById("backToTopBtn");
+    window.onscroll = function () {
+      btn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+    btn.onclick = () => {
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
     };
     </script>
 </body>
