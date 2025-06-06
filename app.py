@@ -8,10 +8,18 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+from datetime import datetime
+
+@app.context_processor
+def inject_year():
+    return {'current_year': datetime.now().year}
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
 
 
 # ---------------- HOME (Portfolio) ----------------
